@@ -36,7 +36,7 @@ class NewsService
 
         // Return merged results from all APIs
         return [
-            // 'newsapi' => $newsApiResponse->json(),
+            'newsapi' => $newsApiResponse->json(),
             'guardianapi' => $guardianApiResponse->json(),
             // 'opennews' => $openNewsResponse->json(),
             // 'newscred' => $newsCredResponse->json(),

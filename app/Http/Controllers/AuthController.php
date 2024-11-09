@@ -35,15 +35,24 @@ class AuthController extends Controller
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
-
+    
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 400);
         }
+    
         $user = User::where('email', $request->email)->first();
-
+    
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-        return response()->json(['user' => $user]);
+    
+        // Generate access token using Passport
+        $token = $user->createToken('UserToken')->accessToken;
+    
+        return response()->json([
+            'user' => $user,
+            'token' => $token,
+        ], 200);
     }
+    
 }
