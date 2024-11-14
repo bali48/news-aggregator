@@ -19,6 +19,7 @@ I Used Three Data Sources Here to fetch the News.
 
 For running the backend of the application run this command.
 make sure you have installed docker already
+also create .env file from .env.example
 
 ```bash
 docker-compose up -d --build
