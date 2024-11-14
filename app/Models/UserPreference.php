@@ -9,9 +9,9 @@ class UserPreference extends Model
     protected $fillable = ['user_id', 'sources', 'categories', 'authors'];
 
     protected $casts = [
-        'sources' => 'array',
-        'categories' => 'array',
-        'authors' => 'array',
+        'sources' => 'string',
+        'categories' => 'string',
+        'authors' => 'string',
     ];
 
     public function user()

@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::get('articles/search', [ArticleController::class, 'searchArticles']);
+Route::get('fetchCategoriesAndAuthors', [UserPreferenceController::class, 'fetchCategoriesAndAuthors']);
+
+Route::get('user/articles', [ArticleController::class, 'personalizedFeed']);
+
 Route::middleware('auth:api')->group(function () {
-    Route::get('articles/search', [ArticleController::class, 'searchArticles']);
     Route::get('user/preferences', [UserPreferenceController::class, 'getPreferences']);
     Route::post('user/preferences', [UserPreferenceController::class, 'updatePreferences']);
 });

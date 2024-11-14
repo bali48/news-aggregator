@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_preferences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->json('sources')->nullable(); 
-            $table->json('categories')->nullable();
-            $table->json('authors')->nullable();    
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key for user relation
+            $table->string('sources')->nullable(); // Define columns with nullable string type
+            $table->string('categories')->nullable();
+            $table->string('authors')->nullable();
             $table->timestamps();
         });
     }
